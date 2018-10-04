@@ -15,7 +15,7 @@ class ReportTypesController < ApplicationController
 
   # POST /report_types
   def create
-    @report_type = ReportType.new(report_type_params)
+    @report_type = ReportType.new(allowed_params)
 
     if @report_type.save
       render json: @report_type, status: :created, location: @report_type
@@ -26,7 +26,7 @@ class ReportTypesController < ApplicationController
 
   # PATCH/PUT /report_types/1
   def update
-    if @report_type.update(report_type_params)
+    if @report_type.update(allowed_params)
       render json: @report_type
     else
       render json: @report_type.errors, status: :unprocessable_entity
@@ -46,6 +46,9 @@ class ReportTypesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def report_type_params
-      params.fetch(:report_type, {})
+      params.fetch(:report_type, {:Type => :string})
+    end
+    def allowed_params
+      params.permit(:Type)
     end
 end
