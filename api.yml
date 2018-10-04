@@ -1,0 +1,198 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Microservice for Reports
+  description: Ruby + PostgrSQL
+  license:
+    name: Software Architecture 2018-II
+host: 0.0.0.0:3030
+basePath: 
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /reports:
+    post:
+      summary: Creates a new report
+      operationId: createReport
+      parameters:
+        - name: report
+          in: body
+          required: true
+          description: Report Object
+          schema:
+            $ref: '#/definitions/ReportInput'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Report'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+    get:
+      summary: Returns all reports
+      operationId: getAllReports
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ReportList'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  /report/{code}:
+    get:
+      summary: Returns a report with the given code
+      operationId: getReportByCode
+      parameters:
+        - name: code
+          in: path
+          description: The code of the report to be returned
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Report'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+    put:
+      summary: Updates a report with the given code
+      operationId: updateReport
+      parameters:
+        - name: code
+          in: path
+          description: The code of the report to be updated
+          required: true
+          type: integer
+        - name: report
+          in: body
+          required: true
+          description: Report Object
+          schema:
+            $ref: '#/definitions/ReportInput'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Report'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+    delete:
+      summary: Deletes a report with the given code
+      operationId: deleteReport
+      parameters:
+        - name: code
+          in: path
+          description: The code of the report to be deleted
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ReportCode'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+definitions:
+
+  #Reports
+  Report:
+    type: object
+    properties:
+      id:
+        type: integer
+      IP:
+        type: integer
+      report_type_id:
+        type: biginteger
+  
+  ReportInput:
+    type: object
+    porperties:
+      IP:
+        type: integer
+      report_type_id:
+        type: biginteger
+        
+  ReportList:
+    type: object
+    required:
+      - total
+      - list
+    properties:
+      total:
+        type: number
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/Report'
+
+  ReportCode:
+    type: object
+    properties:
+      code:
+        type: integer
+
+  #Errors
+  ErrorModel:
+    type: object
+    required:
+      - message
+      - code
+    properties:
+      message:
+        type: string
+      code:
+        type: number
+      description:
+        type: object
