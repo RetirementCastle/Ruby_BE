@@ -1,0 +1,432 @@
+ruby_be_db_1 is up-to-date
+ruby_be_web_1 is up-to-date
+Attaching to ruby_be_db_1, ruby_be_web_1
+[36mdb_1   |[0m The files belonging to this database system will be owned by user "postgres".
+[36mdb_1   |[0m This user must also own the server process.
+[36mdb_1   |[0m 
+[36mdb_1   |[0m The database cluster will be initialized with locale "en_US.utf8".
+[36mdb_1   |[0m The default database encoding has accordingly been set to "UTF8".
+[36mdb_1   |[0m The default text search configuration will be set to "english".
+[36mdb_1   |[0m 
+[36mdb_1   |[0m Data page checksums are disabled.
+[36mdb_1   |[0m 
+[36mdb_1   |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[36mdb_1   |[0m creating subdirectories ... ok
+[36mdb_1   |[0m selecting default max_connections ... 100
+[36mdb_1   |[0m selecting default shared_buffers ... 128MB
+[36mdb_1   |[0m selecting dynamic shared memory implementation ... posix
+[36mdb_1   |[0m creating configuration files ... ok
+[36mdb_1   |[0m running bootstrap script ... ok
+[36mdb_1   |[0m performing post-bootstrap initialization ... ok
+[36mdb_1   |[0m syncing data to disk ... ok
+[36mdb_1   |[0m 
+[36mdb_1   |[0m WARNING: enabling "trust" authentication for local connections
+[36mdb_1   |[0m You can change this by editing pg_hba.conf or using the option -A, or
+[36mdb_1   |[0m --auth-local and --auth-host, the next time you run initdb.
+[36mdb_1   |[0m 
+[36mdb_1   |[0m Success. You can now start the database server using:
+[36mdb_1   |[0m 
+[36mdb_1   |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[36mdb_1   |[0m 
+[36mdb_1   |[0m waiting for server to start....2018-11-01 18:18:57.401 UTC [40] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mdb_1   |[0m 2018-11-01 18:18:57.435 UTC [41] LOG:  database system was shut down at 2018-11-01 18:18:56 UTC
+[36mdb_1   |[0m 2018-11-01 18:18:57.445 UTC [40] LOG:  database system is ready to accept connections
+[36mdb_1   |[0m  done
+[36mdb_1   |[0m server started
+[33mweb_1  |[0m => Booting Puma
+[33mweb_1  |[0m => Rails 5.2.1 application starting in development 
+[33mweb_1  |[0m => Run `rails server -h` for more startup options
+[33mweb_1  |[0m Puma starting in single mode...
+[33mweb_1  |[0m * Version 3.12.0 (ruby 2.5.3-p105), codename: Llamas in Pajamas
+[33mweb_1  |[0m * Min threads: 5, max threads: 5
+[33mweb_1  |[0m * Environment: development
+[33mweb_1  |[0m * Listening on tcp://0.0.0.0:3030
+[33mweb_1  |[0m Use Ctrl-C to stop
+[33mweb_1  |[0m Started GET "/reports" for 172.19.0.1 at 2018-11-01 18:19:20 +0000
+[33mweb_1  |[0m   
+[33mweb_1  |[0m ActiveRecord::NoDatabaseError (FATAL:  database "myapp_development" does not exist
+[33mweb_1  |[0m ):
+[33mweb_1  |[0m   
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:688:in `rescue in connect'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:683:in `connect'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:215:in `initialize'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:40:in `new'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:40:in `postgresql_connection'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:809:in `new_connection'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:853:in `checkout_new_connection'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:832:in `try_to_checkout_new_connection'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:793:in `acquire_connection'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:521:in `checkout'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:380:in `connection'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1008:in `retrieve_connection'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_handling.rb:118:in `retrieve_connection'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/connection_handling.rb:90:in `connection'
+[33mweb_1  |[0m activerecord (5.2.1) lib/active_record/migration.rb:554:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[33mweb_1  |[0m rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+[33mweb_1  |[0m rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/engine.rb:524:in `call'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+[33mweb_1  |[0m - Gracefully stopping, waiting for requests to finish
+[33mweb_1  |[0m === puma shutdown: 2018-11-01 18:20:34 +0000 ===
+[33mweb_1  |[0m - Goodbye!
+[33mweb_1  |[0m Exiting
+[33mweb_1  |[0m => Booting Puma
+[33mweb_1  |[0m => Rails 5.2.1 application starting in development 
+[33mweb_1  |[0m => Run `rails server -h` for more startup options
+[33mweb_1  |[0m Puma starting in single mode...
+[33mweb_1  |[0m * Version 3.12.0 (ruby 2.5.3-p105), codename: Llamas in Pajamas
+[33mweb_1  |[0m * Min threads: 5, max threads: 5
+[33mweb_1  |[0m * Environment: development
+[33mweb_1  |[0m * Listening on tcp://0.0.0.0:3030
+[33mweb_1  |[0m Use Ctrl-C to stop
+[33mweb_1  |[0m Started GET "/reports" for 172.19.0.1 at 2018-11-01 18:21:27 +0000
+[33mweb_1  |[0m   [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[33mweb_1  |[0m   ↳ /usr/local/bundle/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[33mweb_1  |[0m Processing by ReportsController#index as */*
+[33mweb_1  |[0m   [1m[36mReport Load (1.0ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 9ms (Views: 3.4ms | ActiveRecord: 2.7ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/residents" for 186.29.106.176 at 2018-11-01 18:21:55 +0000
+[33mweb_1  |[0m   
+[33mweb_1  |[0m ActionController::RoutingError (No route matches [GET] "/residents"):
+[33mweb_1  |[0m   
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[36mdb_1   |[0m 
+[36mdb_1   |[0m /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+[36mdb_1   |[0m 
+[36mdb_1   |[0m 2018-11-01 18:18:57.488 UTC [40] LOG:  received fast shutdown request
+[36mdb_1   |[0m waiting for server to shut down....2018-11-01 18:18:57.492 UTC [40] LOG:  aborting any active transactions
+[36mdb_1   |[0m 2018-11-01 18:18:57.497 UTC [40] LOG:  background worker "logical replication launcher" (PID 47) exited with exit code 1
+[36mdb_1   |[0m 2018-11-01 18:18:57.501 UTC [42] LOG:  shutting down
+[36mdb_1   |[0m 2018-11-01 18:18:57.526 UTC [40] LOG:  database system is shut down
+[36mdb_1   |[0m  done
+[36mdb_1   |[0m server stopped
+[36mdb_1   |[0m 
+[36mdb_1   |[0m PostgreSQL init process complete; ready for start up.
+[36mdb_1   |[0m 
+[36mdb_1   |[0m 2018-11-01 18:18:57.608 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[36mdb_1   |[0m 2018-11-01 18:18:57.610 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[36mdb_1   |[0m 2018-11-01 18:18:57.617 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mdb_1   |[0m 2018-11-01 18:18:57.640 UTC [49] LOG:  database system was shut down at 2018-11-01 18:18:57 UTC
+[36mdb_1   |[0m 2018-11-01 18:18:57.649 UTC [1] LOG:  database system is ready to accept connections
+[36mdb_1   |[0m 2018-11-01 18:19:20.403 UTC [56] FATAL:  database "myapp_development" does not exist
+[36mdb_1   |[0m 2018-11-01 18:20:34.431 UTC [1] LOG:  received smart shutdown request
+[36mdb_1   |[0m 2018-11-01 18:20:34.445 UTC [1] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+[36mdb_1   |[0m 2018-11-01 18:20:34.447 UTC [50] LOG:  shutting down
+[36mdb_1   |[0m 2018-11-01 18:20:34.473 UTC [1] LOG:  database system is shut down
+[36mdb_1   |[0m 2018-11-01 18:20:42.558 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[36mdb_1   |[0m 2018-11-01 18:20:42.558 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[36mdb_1   |[0m 2018-11-01 18:20:42.580 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mdb_1   |[0m 2018-11-01 18:20:42.992 UTC [20] LOG:  database system was shut down at 2018-11-01 18:20:34 UTC
+[36mdb_1   |[0m 2018-11-01 18:20:43.011 UTC [1] LOG:  database system is ready to accept connections
+[36mdb_1   |[0m 2018-11-01 18:20:45.374 UTC [27] FATAL:  database "myapp_development" does not exist
+[33mweb_1  |[0m rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+[33mweb_1  |[0m rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/engine.rb:524:in `call'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+[33mweb_1  |[0m Started GET "/favicon.ico" for 186.29.106.176 at 2018-11-01 18:21:56 +0000
+[33mweb_1  |[0m   
+[33mweb_1  |[0m ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+[33mweb_1  |[0m   
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[33mweb_1  |[0m rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+[33mweb_1  |[0m rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/engine.rb:524:in `call'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+[33mweb_1  |[0m Started GET "/reports" for 186.29.106.176 at 2018-11-01 18:22:05 +0000
+[33mweb_1  |[0m Processing by ReportsController#index as HTML
+[33mweb_1  |[0m   [1m[36mReport Load (0.8ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.8ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started POST "/report_types" for 172.19.0.1 at 2018-11-01 18:22:43 +0000
+[33mweb_1  |[0m Processing by ReportTypesController#create as HTML
+[33mweb_1  |[0m   Parameters: {"Type"=>"Casual", "report_type"=>{"Type"=>"Casual"}}
+[33mweb_1  |[0m Unpermitted parameter: :report_type
+[33mweb_1  |[0m   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:20
+[33mweb_1  |[0m   [1m[36mReportType Create (1.2ms)[0m  [1m[32mINSERT INTO "report_types" ("Type") VALUES ($1) RETURNING "id"[0m  [["Type", "Casual"]]
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:20
+[33mweb_1  |[0m   [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:20
+[33mweb_1  |[0m Completed 201 Created in 19ms (Views: 1.1ms | ActiveRecord: 8.4ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started POST "/reports" for 172.19.0.1 at 2018-11-01 18:23:27 +0000
+[33mweb_1  |[0m Processing by ReportsController#create as HTML
+[33mweb_1  |[0m   Parameters: {"IP"=>"12.12.12.12", "report"=>{"IP"=>"12.12.12.12"}}
+[33mweb_1  |[0m Unpermitted parameter: :report
+[33mweb_1  |[0m   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m   [1m[36mReport Create (1.2ms)[0m  [1m[32mINSERT INTO "reports" ("created_at", "updated_at", "IP") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2018-11-01 18:23:27.145264"], ["updated_at", "2018-11-01 18:23:27.145264"], ["IP", "12.12.12.12"]]
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m   [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m Completed 201 Created in 31ms (Views: 1.2ms | ActiveRecord: 5.5ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/report_types/null" for 172.19.0.1 at 2018-11-01 18:23:27 +0000
+[33mweb_1  |[0m Processing by ReportTypesController#show as */*
+[33mweb_1  |[0m   Parameters: {"id"=>"null"}
+[33mweb_1  |[0m   [1m[36mReportType Load (0.4ms)[0m  [1m[34mSELECT  "report_types".* FROM "report_types" WHERE "report_types"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:44
+[33mweb_1  |[0m Completed 404 Not Found in 12ms (ActiveRecord: 0.8ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m   
+[33mweb_1  |[0m ActiveRecord::RecordNotFound (Couldn't find ReportType with 'id'=null):
+[33mweb_1  |[0m   
+[33mweb_1  |[0m app/controllers/report_types_controller.rb:44:in `set_report_type'
+[33mweb_1  |[0m Started GET "/report_types" for 172.19.0.1 at 2018-11-01 18:23:57 +0000
+[33mweb_1  |[0m Processing by ReportTypesController#index as */*
+[33mweb_1  |[0m   [1m[36mReportType Load (1.9ms)[0m  [1m[34mSELECT "report_types".* FROM "report_types"[0m
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 1.9ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/reports" for 172.19.0.1 at 2018-11-01 18:24:30 +0000
+[33mweb_1  |[0m Processing by ReportsController#index as */*
+[33mweb_1  |[0m   [1m[36mReport Load (0.6ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.6ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/report_types/null" for 172.19.0.1 at 2018-11-01 18:24:30 +0000
+[33mweb_1  |[0m Processing by ReportTypesController#show as */*
+[33mweb_1  |[0m   Parameters: {"id"=>"null"}
+[33mweb_1  |[0m   [1m[36mReportType Load (0.5ms)[0m  [1m[34mSELECT  "report_types".* FROM "report_types" WHERE "report_types"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:44
+[33mweb_1  |[0m Completed 404 Not Found in 4ms (ActiveRecord: 0.5ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m   
+[33mweb_1  |[0m ActiveRecord::RecordNotFound (Couldn't find ReportType with 'id'=null):
+[33mweb_1  |[0m   
+[33mweb_1  |[0m app/controllers/report_types_controller.rb:44:in `set_report_type'
+[33mweb_1  |[0m Started GET "/report_types" for 186.29.106.176 at 2018-11-01 18:25:42 +0000
+[33mweb_1  |[0m Processing by ReportTypesController#index as HTML
+[33mweb_1  |[0m   [1m[36mReportType Load (0.6ms)[0m  [1m[34mSELECT "report_types".* FROM "report_types"[0m
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/reports" for 186.29.106.176 at 2018-11-01 18:25:46 +0000
+[33mweb_1  |[0m Processing by ReportsController#index as HTML
+[33mweb_1  |[0m   [1m[36mReport Load (0.5ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started POST "/reports" for 172.19.0.1 at 2018-11-01 18:26:55 +0000
+[33mweb_1  |[0m Processing by ReportsController#create as HTML
+[33mweb_1  |[0m   Parameters: {"IP"=>"12.12.12.12", "report"=>{"IP"=>"12.12.12.12"}}
+[33mweb_1  |[0m Unpermitted parameter: :report
+[33mweb_1  |[0m   [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m   [1m[36mReport Create (1.4ms)[0m  [1m[32mINSERT INTO "reports" ("created_at", "updated_at", "IP") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2018-11-01 18:26:55.892681"], ["updated_at", "2018-11-01 18:26:55.892681"], ["IP", "12.12.12.12"]]
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m   [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m Completed 201 Created in 15ms (Views: 0.8ms | ActiveRecord: 5.3ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/report_types/null" for 172.19.0.1 at 2018-11-01 18:26:55 +0000
+[33mweb_1  |[0m Processing by ReportTypesController#show as */*
+[33mweb_1  |[0m   Parameters: {"id"=>"null"}
+[33mweb_1  |[0m   [1m[36mReportType Load (0.5ms)[0m  [1m[34mSELECT  "report_types".* FROM "report_types" WHERE "report_types"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:44
+[33mweb_1  |[0m Completed 404 Not Found in 4ms (ActiveRecord: 0.5ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m   
+[33mweb_1  |[0m ActiveRecord::RecordNotFound (Couldn't find ReportType with 'id'=null):
+[33mweb_1  |[0m   
+[33mweb_1  |[0m app/controllers/report_types_controller.rb:44:in `set_report_type'
+[33mweb_1  |[0m Started GET "/reports" for 186.29.106.176 at 2018-11-01 18:27:06 +0000
+[33mweb_1  |[0m Processing by ReportsController#index as HTML
+[33mweb_1  |[0m   [1m[36mReport Load (1.7ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 1.7ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started POST "/reports" for 172.19.0.1 at 2018-11-01 18:27:57 +0000
+[33mweb_1  |[0m Processing by ReportsController#create as HTML
+[33mweb_1  |[0m   Parameters: {"report_type_id"=>1, "IP"=>"12.12.12.12", "report"=>{"report_type_id"=>1, "IP"=>"12.12.12.12"}}
+[33mweb_1  |[0m Unpermitted parameter: :report
+[33mweb_1  |[0m   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m   [1m[36mReport Create (1.2ms)[0m  [1m[32mINSERT INTO "reports" ("report_type_id", "created_at", "updated_at", "IP") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["report_type_id", 1], ["created_at", "2018-11-01 18:27:57.712595"], ["updated_at", "2018-11-01 18:27:57.712595"], ["IP", "12.12.12.12"]]
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m   [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m Completed 201 Created in 12ms (Views: 0.9ms | ActiveRecord: 3.5ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/report_types/1" for 172.19.0.1 at 2018-11-01 18:27:57 +0000
+[33mweb_1  |[0m Processing by ReportTypesController#show as */*
+[33mweb_1  |[0m   Parameters: {"id"=>"1"}
+[33mweb_1  |[0m   [1m[36mReportType Load (0.6ms)[0m  [1m[34mSELECT  "report_types".* FROM "report_types" WHERE "report_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:44
+[33mweb_1  |[0m Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/reports" for 186.29.106.176 at 2018-11-01 18:28:03 +0000
+[33mweb_1  |[0m Processing by ReportsController#index as HTML
+[33mweb_1  |[0m   [1m[36mReport Load (0.5ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/reports" for 186.29.106.176 at 2018-11-01 18:30:05 +0000
+[33mweb_1  |[0m Processing by ReportsController#index as HTML
+[33mweb_1  |[0m   [1m[36mReport Load (0.6ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.6ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/reports" for 186.29.106.176 at 2018-11-01 18:53:57 +0000
+[33mweb_1  |[0m Processing by ReportsController#index as HTML
+[33mweb_1  |[0m   [1m[36mReport Load (1.3ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:8
+[33mweb_1  |[0m Completed 200 OK in 16ms (Views: 9.0ms | ActiveRecord: 4.6ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started POST "/reports" for 172.19.0.1 at 2018-11-01 20:37:33 +0000
+[33mweb_1  |[0m Processing by ReportsController#create as HTML
+[33mweb_1  |[0m   Parameters: {"report_type_id"=>1, "IP"=>"12.12.12.12", "report"=>{"report_type_id"=>1, "IP"=>"12.12.12.12"}}
+[33mweb_1  |[0m Unpermitted parameter: :report
+[33mweb_1  |[0m   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m   [1m[36mReport Create (1.5ms)[0m  [1m[32mINSERT INTO "reports" ("report_type_id", "created_at", "updated_at", "IP") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["report_type_id", 1], ["created_at", "2018-11-01 20:37:34.061280"], ["updated_at", "2018-11-01 20:37:34.061280"], ["IP", "12.12.12.12"]]
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m   [1m[35m (253.8ms)[0m  [1m[35mCOMMIT[0m
+[33mweb_1  |[0m   ↳ app/controllers/reports_controller.rb:20
+[33mweb_1  |[0m Completed 201 Created in 288ms (Views: 4.4ms | ActiveRecord: 267.6ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/report_types/1" for 172.19.0.1 at 2018-11-01 20:37:34 +0000
+[33mweb_1  |[0m Processing by ReportTypesController#show as */*
+[33mweb_1  |[0m   Parameters: {"id"=>"1"}
+[33mweb_1  |[0m   [1m[36mReportType Load (0.6ms)[0m  [1m[34mSELECT  "report_types".* FROM "report_types" WHERE "report_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[33mweb_1  |[0m   ↳ app/controllers/report_types_controller.rb:44
+[33mweb_1  |[0m Completed 404 Not Found in 18ms (ActiveRecord: 4.4ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m   
+[33mweb_1  |[0m ActiveRecord::RecordNotFound (Couldn't find ReportType with 'id'=1):
+[33mweb_1  |[0m   
+[33mweb_1  |[0m app/controllers/report_types_controller.rb:44:in `set_report_type'
+[33mweb_1  |[0m Started GET "/" for 190.26.159.30 at 2018-11-04 15:33:34 +0000
+[33mweb_1  |[0m Processing by Rails::WelcomeController#index as HTML
+[33mweb_1  |[0m   Rendering /usr/local/bundle/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+[33mweb_1  |[0m   Rendered /usr/local/bundle/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (3.5ms)
+[33mweb_1  |[0m Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+[33mweb_1  |[0m 
+[33mweb_1  |[0m 
+[33mweb_1  |[0m Started GET "/favicon.ico" for 190.26.159.30 at 2018-11-04 15:33:35 +0000
+[33mweb_1  |[0m   
+[33mweb_1  |[0m ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+[33mweb_1  |[0m   
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[33mweb_1  |[0m rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[33mweb_1  |[0m activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[33mweb_1  |[0m actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+[33mweb_1  |[0m rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[33mweb_1  |[0m railties (5.2.1) lib/rails/engine.rb:524:in `call'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+[33mweb_1  |[0m puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+[33mweb_1  |[0m 2018-11-06 00:38:22 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-06 10:16:42 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-07 02:46:47 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-07 08:09:37 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-08 11:37:28 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-14 11:36:36 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-14 21:16:24 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-16 00:44:10 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-17 08:23:39 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-17 08:23:39 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-17 13:43:55 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-20 04:33:31 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
+[33mweb_1  |[0m 2018-11-20 04:33:32 +0000: HTTP parse error, malformed request (): #<Puma::HttpParserError: Invalid HTTP format, parsing fails.>
+[33mweb_1  |[0m ---
